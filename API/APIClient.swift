@@ -5,7 +5,7 @@
 //  Created by Carter Foughty on 1/31/25.
 //
 
-import Foundation
+import Factory
 
 public protocol APIClient: Actor {
     
@@ -17,11 +17,18 @@ actor DefaultAPIClient: APIClient {
     
     // MARK: - API
     
-    init() {}
+    init(urlProtocol: URLProtocol.Type?) {
+        let configuration = URLSessionConfiguration.default
+        // Configure the session with a custom `URLProtocol` type if one is provided.
+        if let urlProtocol {
+            configuration.protocolClasses = [urlProtocol]
+        }
+        self.configuration = configuration
+    }
     
     func send<Value>(_ request: any APIRequest<Value>) async throws -> Value {
         let urlRequest = request.urlRequest
-        let session = URLSession(configuration: .default)
+        let session = URLSession(configuration: configuration)
         
         do {
             // Perform the request
@@ -71,6 +78,8 @@ actor DefaultAPIClient: APIClient {
     // MARK: - Constants
     
     // MARK: - Variables
+    
+    private let configuration: URLSessionConfiguration
     
     // MARK: - Helpers
 }

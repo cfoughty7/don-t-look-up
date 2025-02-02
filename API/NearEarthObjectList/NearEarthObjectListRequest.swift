@@ -35,4 +35,10 @@ public struct NearEarthObjectListRequest: APIRequest {
         urlRequest.httpMethod = "GET"
         self.urlRequest = urlRequest
     }
+    
+    // MARK: - Constants
+    
+    // MARK: - Variables
+    
+    // MARK: - Helpers
 }

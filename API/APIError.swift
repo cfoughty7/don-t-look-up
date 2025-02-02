@@ -8,7 +8,7 @@
 import Foundation
 
 /// A simplified list of errors for any `APIRequest`
-public enum APIError: Error {
+public enum APIError: Error, Equatable {
     
     /// A fallback for errors that weren't anticipated
     case unexpected(String)

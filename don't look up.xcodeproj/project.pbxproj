@@ -26,6 +26,7 @@
 		5C7A17CF2D4EB5C600C728E7 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 5C7A17CE2D4EB5C600C728E7 /* Factory */; };
 		5C7A17D12D4EB5C900C728E7 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 5C7A17D02D4EB5C900C728E7 /* Factory */; };
 		5C7A17D32D4EB5CC00C728E7 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 5C7A17D22D4EB5CC00C728E7 /* Factory */; };
+		5C7A17DB2D4EC1EE00C728E7 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 5C7A17DA2D4EC1EE00C728E7 /* Factory */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -314,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C7A179F2D4DCFD600C728E7 /* API.framework in Frameworks */,
+				5C7A17DB2D4EC1EE00C728E7 /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +582,7 @@
 			);
 			name = APITests;
 			packageProductDependencies = (
+				5C7A17DA2D4EC1EE00C728E7 /* Factory */,
 			);
 			productName = APITests;
 			productReference = 5C7A179E2D4DCFD600C728E7 /* APITests.xctest */;
@@ -1727,6 +1730,11 @@
 			productName = Factory;
 		};
 		5C7A17D22D4EB5CC00C728E7 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C7A17C92D4EB5B500C728E7 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+		5C7A17DA2D4EC1EE00C728E7 /* Factory */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5C7A17C92D4EB5B500C728E7 /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
