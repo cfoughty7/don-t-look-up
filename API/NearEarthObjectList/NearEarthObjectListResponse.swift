@@ -12,7 +12,7 @@ public struct NearEarthObjectListResponse: Decodable, Sendable {
     
     // MARK: - API
     
-    public var nearEarthObjects: [NearEarthObject]
+    public var nearEarthObjectModels: [NearEarthObjectModel]
     
     public init(from decoder: any Decoder) throws {
         // The NASA NEO list request returns data in an odd format
@@ -28,14 +28,14 @@ public struct NearEarthObjectListResponse: Decodable, Sendable {
             forKey: .nearEarthObjects
         )
         // Loop over all the keys and add the `nearEarthObjects` to the array.
-        let nearEarthObjects = try nearEarthObjectsContainer.allKeys.flatMap { key in
-            try nearEarthObjectsContainer.decode([NearEarthObject].self, forKey: key)
+        let nearEarthObjectModels = try nearEarthObjectsContainer.allKeys.flatMap { key in
+            try nearEarthObjectsContainer.decode([NearEarthObjectModel].self, forKey: key)
         }
         
-        self.nearEarthObjects = nearEarthObjects
+        self.nearEarthObjectModels = nearEarthObjectModels
     }
     
-    public struct NearEarthObject: Decodable, Sendable, Hashable {
+    public struct NearEarthObjectModel: Decodable, Sendable, Hashable {
         public var id: String
         public var neoReferenceId: String
         public var name: String

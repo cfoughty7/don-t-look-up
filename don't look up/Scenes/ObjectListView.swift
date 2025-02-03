@@ -13,19 +13,28 @@ struct ObjectListView: View {
     
     // MARK: - Constants
     
-    private let mockData = [
-        "Asteroid 1", "Asteroid 2", "Asteroid 3", "Asteroid 4", "Asteroid 5"
-    ]
-    
     // MARK: - Variables
+    
+    @StateObject private var viewModel = ObjectListViewModel()
     
     // MARK: - Body
     
     var body: some View {
-        VStack(spacing: 10) {
-            ForEach(mockData, id: \.self) { asteroid in
-                Text(asteroid)
+        ScrollView {
+            if viewModel.objects.isEmpty {
+                Text("Loading...")
+            } else {
+                VStack(spacing: 10) {
+                    ForEach(viewModel.objects, id: \.self) { asteroid in
+                        Text(asteroid.name)
+                    }
+                }
+                .frame(maxWidth: .infinity)
             }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .task {
+            await viewModel.appeared()
         }
     }
 

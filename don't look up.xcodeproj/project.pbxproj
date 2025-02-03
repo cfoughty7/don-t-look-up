@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C6357AA2D4FFA1300135AFB /* API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7A17952D4DCFD600C728E7 /* API.framework */; };
+		5C6357AB2D4FFA1300135AFB /* API.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7A17952D4DCFD600C728E7 /* API.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C7A16F72D4D5E9900C728E7 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7A16ED2D4D5E9800C728E7 /* Core.framework */; };
 		5C7A17022D4D5E9900C728E7 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7A16ED2D4D5E9800C728E7 /* Core.framework */; };
 		5C7A17032D4D5E9900C728E7 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7A16ED2D4D5E9800C728E7 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -18,8 +20,6 @@
 		5C7A177C2D4D63B400C728E7 /* Service.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7A17672D4D63B300C728E7 /* Service.framework */; };
 		5C7A177D2D4D63B400C728E7 /* Service.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7A17672D4D63B300C728E7 /* Service.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C7A179F2D4DCFD600C728E7 /* API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7A17952D4DCFD600C728E7 /* API.framework */; };
-		5C7A17AA2D4DCFD600C728E7 /* API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7A17952D4DCFD600C728E7 /* API.framework */; };
-		5C7A17AB2D4DCFD600C728E7 /* API.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7A17952D4DCFD600C728E7 /* API.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C7A17C22D4EAB4100C728E7 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7A16ED2D4D5E9800C728E7 /* Core.framework */; };
 		5C7A17CB2D4EB5B500C728E7 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 5C7A17CA2D4EB5B500C728E7 /* Factory */; };
 		5C7A17CD2D4EB5BD00C728E7 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 5C7A17CC2D4EB5BD00C728E7 /* Factory */; };
@@ -30,6 +30,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5C6357AC2D4FFA1300135AFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C8B7FBC2D4D554E005CC81D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C7A17942D4DCFD600C728E7;
+			remoteInfo = API;
+		};
 		5C7A16F82D4D5E9900C728E7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5C8B7FBC2D4D554E005CC81D /* Project object */;
@@ -100,13 +107,6 @@
 			remoteGlobalIDString = 5C8B7FC32D4D554E005CC81D;
 			remoteInfo = "don't look up";
 		};
-		5C7A17A82D4DCFD600C728E7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5C8B7FBC2D4D554E005CC81D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5C7A17942D4DCFD600C728E7;
-			remoteInfo = API;
-		};
 		5C7A17C42D4EAB4100C728E7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5C8B7FBC2D4D554E005CC81D /* Project object */;
@@ -124,6 +124,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		5C6357AE2D4FFA1300135AFB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5C6357AB2D4FFA1300135AFB /* API.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5C7A17042D4D5E9900C728E7 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -133,7 +144,6 @@
 				5C7A177D2D4D63B400C728E7 /* Service.framework in Embed Frameworks */,
 				5C7A173B2D4D621200C728E7 /* UI.framework in Embed Frameworks */,
 				5C7A17032D4D5E9900C728E7 /* Core.framework in Embed Frameworks */,
-				5C7A17AB2D4DCFD600C728E7 /* API.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C7A17D32D4EB5CC00C728E7 /* Factory in Frameworks */,
+				5C6357AA2D4FFA1300135AFB /* API.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +338,6 @@
 				5C7A17CB2D4EB5B500C728E7 /* Factory in Frameworks */,
 				5C7A173A2D4D620700C728E7 /* UI.framework in Frameworks */,
 				5C7A17022D4D5E9900C728E7 /* Core.framework in Frameworks */,
-				5C7A17AA2D4DCFD600C728E7 /* API.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,10 +508,12 @@
 				5C7A17632D4D63B300C728E7 /* Sources */,
 				5C7A17642D4D63B300C728E7 /* Frameworks */,
 				5C7A17652D4D63B300C728E7 /* Resources */,
+				5C6357AE2D4FFA1300135AFB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5C6357AD2D4FFA1300135AFB /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				5C7A17682D4D63B300C728E7 /* Service */,
@@ -603,7 +615,6 @@
 				5C7A173D2D4D621C00C728E7 /* PBXTargetDependency */,
 				5C7A17012D4D5E9900C728E7 /* PBXTargetDependency */,
 				5C7A177B2D4D63B400C728E7 /* PBXTargetDependency */,
-				5C7A17A92D4DCFD600C728E7 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				5C8B7FC62D4D554E005CC81D /* don't look up */,
@@ -845,6 +856,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5C6357AD2D4FFA1300135AFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C7A17942D4DCFD600C728E7 /* API */;
+			targetProxy = 5C6357AC2D4FFA1300135AFB /* PBXContainerItemProxy */;
+		};
 		5C7A16F92D4D5E9900C728E7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5C7A16EC2D4D5E9800C728E7 /* Core */;
@@ -894,11 +910,6 @@
 			isa = PBXTargetDependency;
 			target = 5C8B7FC32D4D554E005CC81D /* don't look up */;
 			targetProxy = 5C7A17A22D4DCFD600C728E7 /* PBXContainerItemProxy */;
-		};
-		5C7A17A92D4DCFD600C728E7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5C7A17942D4DCFD600C728E7 /* API */;
-			targetProxy = 5C7A17A82D4DCFD600C728E7 /* PBXContainerItemProxy */;
 		};
 		5C7A17C52D4EAB4100C728E7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
