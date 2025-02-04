@@ -19,53 +19,25 @@ actor MockNearEarthObjectService: NearEarthObjectService {
     
     init() {
         self.delayedValues = DelayedValues(values: [
-            .value(mockNEOs, delay: 5)
+            .value([.mock1, .mock2, .mock3, .mock4, .mock5, .mock6, .mock7, .mock8, .mock9], delay: 1),
+            .value([.mock1, .mock2, .mock4, .mock7, .mock9, .mock10], delay: 1),
+            .value([.mock3, .mock7, .mock9, .mock10], delay: 1),
+            .value([.mock1, .mock2, .mock3, .mock4, .mock5, .mock6, .mock7, .mock8, .mock9], delay: 1),
+            .value([.mock1, .mock2, .mock4, .mock7, .mock9, .mock10], delay: 1),
+            .value([.mock3, .mock7, .mock9, .mock10], delay: 1),
+            .value([.mock1, .mock2, .mock3, .mock4, .mock5, .mock6, .mock7, .mock8, .mock9], delay: 1),
+            .value([.mock1, .mock2, .mock4, .mock7, .mock9, .mock10], delay: 1),
+            .value([.mock3, .mock7, .mock9, .mock10], delay: 1),
+            .value([.mock1, .mock2, .mock3, .mock4, .mock5, .mock6, .mock7, .mock8, .mock9], delay: 1),
+            .value([.mock1, .mock2, .mock4, .mock7, .mock9, .mock10], delay: 1),
+            .value([.mock3, .mock7, .mock9, .mock10], delay: 1),
+            .value([.mock1, .mock2, .mock3, .mock4, .mock5, .mock6, .mock7, .mock8, .mock9], delay: 1),
+            .value([.mock1, .mock2, .mock4, .mock7, .mock9, .mock10], delay: 1),
+            .value([.mock3, .mock7, .mock9, .mock10], delay: 1),
         ])
     }
     
     // MARK: - Constants
-    
-    private let mockNEOs = [
-        NearEarthObject(
-            id: "123",
-            referenceID: "123",
-            name: "(2024 BH)",
-            absoluteMagnitude: 21.34,
-            estimatedMinimumDiameter: 143.4019234645,
-            estimatedMaximumDiameter: 320.6564489709,
-            isPotentiallyHazardousAsteroid: true,
-            closeApproachDate: Date(),
-            relativeVelocity: 19.7498128142,
-            missDistance: 38764558.550560687,
-            orbitingBody: "Earth"
-        ),
-        NearEarthObject(
-            id: "223",
-            referenceID: "223",
-            name: "(2013 RE6)",
-            absoluteMagnitude: 21.34,
-            estimatedMinimumDiameter: 143.4019234645,
-            estimatedMaximumDiameter: 320.6564489709,
-            isPotentiallyHazardousAsteroid: true,
-            closeApproachDate: Date(),
-            relativeVelocity: 19.7498128142,
-            missDistance: 38764558.550560687,
-            orbitingBody: "Earth"
-        ),
-        NearEarthObject(
-            id: "323",
-            referenceID: "323",
-            name: "(2015 CB)",
-            absoluteMagnitude: 21.34,
-            estimatedMinimumDiameter: 143.4019234645,
-            estimatedMaximumDiameter: 320.6564489709,
-            isPotentiallyHazardousAsteroid: true,
-            closeApproachDate: Date(),
-            relativeVelocity: 19.7498128142,
-            missDistance: 38764558.550560687,
-            orbitingBody: "Earth"
-        )
-    ]
     
     // MARK: - Variables
     
