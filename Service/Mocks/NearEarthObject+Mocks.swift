@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension NearEarthObject {
+public extension NearEarthObject {
     
     static var mock1: NearEarthObject {
         NearEarthObject(
@@ -34,7 +34,7 @@ extension NearEarthObject {
             estimatedMinimumDiameter: 143.4019234645,
             estimatedMaximumDiameter: 320.6564489709,
             isPotentiallyHazardousAsteroid: false,
-            closeApproachDate: Date(),
+            closeApproachDate: Date().advanced(by: 24 * 60 * 60),
             relativeVelocity: 19.7498128142,
             missDistance: 38764558.550560687,
             orbitingBody: "Earth"
@@ -66,7 +66,7 @@ extension NearEarthObject {
             estimatedMinimumDiameter: 36.6906137531,
             estimatedMaximumDiameter: 82.0427064882,
             isPotentiallyHazardousAsteroid: false,
-            closeApproachDate: Date(),
+            closeApproachDate: Date().advanced(by: 24 * 60 * 60),
             relativeVelocity: 19.486643553,
             missDistance: 4027962.697099799,
             orbitingBody: "Earth"
@@ -82,7 +82,7 @@ extension NearEarthObject {
             estimatedMinimumDiameter: 68.9532874451,
             estimatedMaximumDiameter: 154.1842379994,
             isPotentiallyHazardousAsteroid: false,
-            closeApproachDate: Date(),
+            closeApproachDate: Date().advanced(by: 24 * 60 * 60),
             relativeVelocity: 15.8091452192,
             missDistance: 8086031.995456672,
             orbitingBody: "Earth"
@@ -114,7 +114,7 @@ extension NearEarthObject {
             estimatedMinimumDiameter: 90.4019234645,
             estimatedMaximumDiameter: 180.6564489709,
             isPotentiallyHazardousAsteroid: true,
-            closeApproachDate: Date(),
+            closeApproachDate: Date().advanced(by: 24 * 60 * 60 * 2),
             relativeVelocity: 19.7498128142,
             missDistance: 32764558.550560687,
             orbitingBody: "Earth"
@@ -146,7 +146,7 @@ extension NearEarthObject {
             estimatedMinimumDiameter: 72.8710414898,
             estimatedMaximumDiameter: 162.9446023625,
             isPotentiallyHazardousAsteroid: false,
-            closeApproachDate: Date(),
+            closeApproachDate: Date().advanced(by: 24 * 60 * 60),
             relativeVelocity: 11.9557600601,
             missDistance: 16940461.018585347,
             orbitingBody: "Earth"

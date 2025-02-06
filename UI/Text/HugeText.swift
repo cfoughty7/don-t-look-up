@@ -1,14 +1,14 @@
 //
-//  HeadlineText.swift
+//  HugeText.swift
 //  UI
 //
-//  Created by Carter Foughty on 2/4/25.
+//  Created by Carter Foughty on 2/5/25.
 //
 
 import SwiftUI
 
-/// A `Text` view with the headline text `TypeStyle`.
-public struct HeadlineText: View {
+/// A `Text` view with the huge text `TypeStyle`.
+public struct HugeText: View {
     
     // MARK: - API
     
@@ -26,12 +26,12 @@ public struct HeadlineText: View {
     
     public var body: some View {
         Text(text)
-            .font(TypeStyle.headline)
+            .font(TypeStyle.huge)
     }
     
     // MARK: - Helpers
 }
 
 #Preview {
-    HeadlineText("HEADLINE TEXT")
+    HugeText("HUGE TEXT")
 }

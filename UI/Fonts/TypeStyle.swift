@@ -42,6 +42,11 @@ public struct TypeStyle {
 
 public extension TypeStyle {
     
+    /// A `Font` with the huge type style.
+    static let huge: Font = {
+        TypeStyle(font: .josefinSansSemibold, size: 28).font
+    }()
+    
     /// A `Font` with the title type style.
     static let title: Font = {
         TypeStyle(font: .josefinSansSemibold, size: 20).font

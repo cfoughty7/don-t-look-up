@@ -31,3 +31,7 @@ public struct CalloutText: View {
     
     // MARK: - Helpers
 }
+
+#Preview {
+    CalloutText("CALLOUT TEXT")
+}

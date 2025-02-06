@@ -31,3 +31,7 @@ public struct BodyText: View {
     
     // MARK: - Helpers
 }
+
+#Preview {
+    BodyText("BODY TEXT")
+}

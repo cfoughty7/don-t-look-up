@@ -205,13 +205,6 @@
 			);
 			target = 5C7A17942D4DCFD600C728E7 /* API */;
 		};
-		5CF67B6A2D5135AC00C179F1 /* Exceptions for "don't look up" folder in "don't look up" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"don-t-look-up-Info.plist",
-			);
-			target = 5C8B7FC32D4D554E005CC81D /* don't look up */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -269,9 +262,6 @@
 		};
 		5C8B7FC62D4D554E005CC81D /* don't look up */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				5CF67B6A2D5135AC00C179F1 /* Exceptions for "don't look up" folder in "don't look up" target */,
-			);
 			path = "don't look up";
 			sourceTree = "<group>";
 		};

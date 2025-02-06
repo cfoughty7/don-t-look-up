@@ -31,3 +31,7 @@ public struct TitleText: View {
     
     // MARK: - Helpers
 }
+
+#Preview {
+    TitleText("TITLE TEXT")
+}
