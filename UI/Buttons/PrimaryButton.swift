@@ -48,6 +48,7 @@ fileprivate struct PrimaryButtonStyle: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .foregroundStyle(Color.readout)
             .background {
                 RoundedRectangle(cornerRadius: 12)
                     .fill(Color.mineral.mix(with: .black, by: configuration.isPressed ? 0.2 : 0))

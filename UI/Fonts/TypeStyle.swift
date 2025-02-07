@@ -66,4 +66,9 @@ public extension TypeStyle {
     static let callout: Font = {
         TypeStyle(font: .josefinSansRegular, size: 13).font
     }()
+    
+    /// A `Font` with the caption type style.
+    static let caption: Font = {
+        TypeStyle(font: .josefinSansSemibold, size: 11).font
+    }()
 }

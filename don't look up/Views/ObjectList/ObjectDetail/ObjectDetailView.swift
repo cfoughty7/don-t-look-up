@@ -296,6 +296,12 @@ struct ObjectDetailView: View {
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 2))
                 .padding(.bottom, 2)
+                
+                VStack {
+                    CalloutText("NOT AN ACCURATE REPRESENTATION")
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.bottom, 2)
             }
         }
     }

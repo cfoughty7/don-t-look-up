@@ -84,22 +84,22 @@ struct ObjectListView: View {
                 
                 if let sections = viewModel.state.value {
                     // If a value is loaded, present the sections.
-                    LazyVStack(alignment: .leading, spacing: 35) {
+                    LazyVStack(alignment: .leading, spacing: 12) {
                         ForEach(sections, id: \.self) { section in
-                            LazyVStack(alignment: .leading, spacing: 16) {
-                                HeadlineText(section.dateText.uppercased())
-                                    .padding(.horizontal, 2)
-                                
-                                LazyVStack(spacing: 12) {
-                                    ForEach(section.objects, id: \.self) { object in
-                                        ObjectRow(nearEarthObject: object) {
-                                            viewModel.rowTapped(object)
-                                        }
-                                        // A matched transition source, paired with the
-                                        // ObjectDetailView for a card-like nav transition.
-                                        .matchedTransitionSource(id: object.id, in: namespace)
-                                    }
+                            HeadlineText(section.dateText.uppercased())
+                                .padding(.horizontal, 2)
+                                // Additional padding for sections. We can't put this
+                                // on the ForEach, so we need to put it here.
+                                .padding(.top, sections.first == section ? 0 : 23)
+                                .padding(.bottom, 4)
+                            
+                            ForEach(section.objects, id: \.self) { object in
+                                ObjectRow(nearEarthObject: object) {
+                                    viewModel.rowTapped(object)
                                 }
+                                // A matched transition source, paired with the
+                                // ObjectDetailView for a card-like nav transition.
+                                .matchedTransitionSource(id: object.id, in: namespace)
                             }
                         }
                     }

@@ -9,13 +9,23 @@ import SwiftUI
 
 @main
 struct AppView: App {
+    
+    /// A simple `UserDefaults` flag indicating whether the user has already onboarded
+    @AppStorage("hasOnboarded") private var hasOnboarded = false
 
     var body: some Scene {
         WindowGroup {
-            ObjectListView()
-                // The app has a dark theme, so apply the scheme
-                // so that system controls respect that.
-                .colorScheme(.dark)
+            ZStack {
+                if hasOnboarded {
+                    ObjectListView()
+                } else {
+                    WelcomeView()
+                }
+            }
+            .animation(.snappy, value: hasOnboarded)
+            // The app has a dark theme, so apply the scheme
+            // so that system controls respect that.
+            .colorScheme(.dark)
         }
     }
 }
