@@ -69,7 +69,9 @@ class ObjectListViewModel: ObservableObject {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd"
         
-        let nearEarthObjects = try await nearEarthObjectService.fetch(date: Date())
+        let nearEarthObjects = try await nearEarthObjectService.fetch(date: Date()).sorted(by: {
+            $0.closeApproachDate < $1.closeApproachDate
+        })
         // Map the returned objects into our section models
         let nearEarthObjectSections = nearEarthObjects.reduce(
             into: [Date: Section]()
