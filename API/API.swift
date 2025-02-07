@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Provides basic parameters for requests to a REST API
+/// Provides basic parameters for requests to external APIs
 protocol API {
     
     /// The base `URL` for requests to the NASA REST API

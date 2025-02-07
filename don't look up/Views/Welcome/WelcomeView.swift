@@ -16,7 +16,7 @@ struct WelcomeView: View {
     
     // MARK: - Variables
     
-    @AppStorage("hasOnboarded") private var hasOnboarded = false
+    @AppStorage(hasOnboardedKey) private var hasOnboarded = false
     /// The state for a rotation and opacity transition when the asteroid image appears
     @State private var effectFactor: CGFloat = 0.7
     
@@ -66,6 +66,7 @@ struct WelcomeView: View {
             .padding(.bottom, 20)
         }
         .onAppear {
+            // On appear, apply the animated state change.
             effectFactor = 1
         }
     }

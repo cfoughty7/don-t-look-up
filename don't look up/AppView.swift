@@ -7,11 +7,14 @@
 
 import SwiftUI
 
+/// A `UserDefaults` key for a value indicating whether the user has onboarded.
+let hasOnboardedKey = "hasOnboarded"
+
 @main
 struct AppView: App {
     
     /// A simple `UserDefaults` flag indicating whether the user has already onboarded
-    @AppStorage("hasOnboarded") private var hasOnboarded = false
+    @AppStorage(hasOnboardedKey) private var hasOnboarded = false
 
     var body: some Scene {
         WindowGroup {

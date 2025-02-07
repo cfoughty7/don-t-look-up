@@ -41,7 +41,7 @@ struct SceneKitView: UIViewRepresentable {
         sceneView.backgroundColor = .clear
         
         if model.autorotate {
-            /// Add a slow rotation about the y axis
+            // Add a slow rotation about the y axis
             let rotation = SCNAction.rotateBy(x: 0, y: CGFloat.pi * 2, z: 0, duration: 30)
             let repeatForever = SCNAction.repeatForever(rotation)
             scene?.rootNode.runAction(repeatForever)

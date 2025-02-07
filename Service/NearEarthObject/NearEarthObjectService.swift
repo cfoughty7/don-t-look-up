@@ -17,6 +17,9 @@ public protocol NearEarthObjectService: Actor {
 
 /// The default implementation of `NearEarthObjectService`, which provides access to `NearEarthObject`
 /// values fetched from an API and cached for quick access.
+///
+/// For a more complicated app, I would likely build another set of components to manage request
+/// de-duplication and data caching, but that seemed unnecessary for this build.
 actor DefaultNearEarthObjectService: NearEarthObjectService {
     
     // MARK: - API

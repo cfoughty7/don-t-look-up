@@ -1,5 +1,5 @@
 //
-//  TestError.swift
+//  MockError.swift
 //  don't look up
 //
 //  Created by Carter Foughty on 2/7/25.
@@ -7,9 +7,10 @@
 
 import Core
 
-enum TestError: AppError, Hashable {
-    case test
-    case test2
+/// A mock `Error` type that can be used for testing.
+enum MockError: AppError, Hashable {
+    case error
+    case error2
     
     var uiError: UIError {
         UIError.default

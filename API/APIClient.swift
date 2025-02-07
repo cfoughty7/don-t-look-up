@@ -7,6 +7,7 @@
 
 import Factory
 
+/// An interface for a component that can perform network requests
 public protocol APIClient: Actor {
     
     /// Sends the request and returns the response `Value`
@@ -20,6 +21,7 @@ actor DefaultAPIClient: APIClient {
     init(urlProtocol: URLProtocol.Type?) {
         let configuration = URLSessionConfiguration.default
         // Configure the session with a custom `URLProtocol` type if one is provided.
+        // This is useful for mocking URL responses when testing.
         if let urlProtocol {
             configuration.protocolClasses = [urlProtocol]
         }

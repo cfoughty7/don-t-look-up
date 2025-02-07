@@ -54,3 +54,7 @@ public struct ErrorView: View {
     
     // MARK: - Helpers
 }
+
+#Preview {
+    ErrorView(.default, onRetry: {})
+}

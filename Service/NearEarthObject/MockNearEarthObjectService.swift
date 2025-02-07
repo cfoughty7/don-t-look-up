@@ -8,7 +8,7 @@
 import API
 import Core
 
-/// A mock implementation of `NearEarthObjectService`, which can be configured to provide
+/// A mock implementation of `NearEarthObjectService` which can be configured to provide
 /// stubbed `NearEarthObject` values or throw errors using `DelayedValues`.
 actor MockNearEarthObjectService: NearEarthObjectService {
     
@@ -18,8 +18,8 @@ actor MockNearEarthObjectService: NearEarthObjectService {
         return try await delayedValues.next()
     }
     
-    init() {
-        self.delayedValues = DelayedValues(values: [
+    init(delayedValues: DelayedValues<[NearEarthObject]>? = nil) {
+        self.delayedValues = delayedValues ?? DelayedValues(values: [
             .error(APIError.unexpected(""), delay: 5),
             .value([.mock1, .mock2, .mock3, .mock4, .mock5, .mock6, .mock7, .mock8, .mock9], delay: 1),
             .value([.mock1, .mock2, .mock4, .mock7, .mock9, .mock10], delay: 3),

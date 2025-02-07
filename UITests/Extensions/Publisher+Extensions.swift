@@ -13,8 +13,9 @@ extension Publisher {
     /// of the `values` property which converts the `Publisher` into an `AsyncSequence`
     func firstValue() async throws -> Output? {
         for try await value in self.values {
-            return value // Get the first emitted value and return
+            return value
         }
-        return nil // If no value is emitted, return nil
+        // If no value is emitted, return nil
+        return nil
     }
 }

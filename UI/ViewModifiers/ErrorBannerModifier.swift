@@ -97,5 +97,4 @@ fileprivate struct ErrorBannerModifier: ViewModifier {
     }
 
     // MARK: - Helpers
-    
 }

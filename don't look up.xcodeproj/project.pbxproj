@@ -10,6 +10,7 @@
 		5C015A632D563A1600139653 /* UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7A17112D4D5EA100C728E7 /* UI.framework */; };
 		5C015A752D563A7C00139653 /* Service.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7A17672D4D63B300C728E7 /* Service.framework */; };
 		5C015A762D563A7C00139653 /* Service.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7A17672D4D63B300C728E7 /* Service.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5C015A832D56599800139653 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 5C015A822D56599800139653 /* Factory */; };
 		5C6357AA2D4FFA1300135AFB /* API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7A17952D4DCFD600C728E7 /* API.framework */; };
 		5C6357AB2D4FFA1300135AFB /* API.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7A17952D4DCFD600C728E7 /* API.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C7A16F72D4D5E9900C728E7 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7A16ED2D4D5E9800C728E7 /* Core.framework */; };
@@ -384,6 +385,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C015A832D56599800139653 /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +712,7 @@
 			);
 			name = "don't look upTests";
 			packageProductDependencies = (
+				5C015A822D56599800139653 /* Factory */,
 			);
 			productName = "don't look upTests";
 			productReference = 5C8B7FD72D4D554F005CC81D /* don't look upTests.xctest */;
@@ -1864,6 +1867,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5C015A822D56599800139653 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C7A17C92D4EB5B500C728E7 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
 		5C7A17CA2D4EB5B500C728E7 /* Factory */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5C7A17C92D4EB5B500C728E7 /* XCRemoteSwiftPackageReference "Factory" */;

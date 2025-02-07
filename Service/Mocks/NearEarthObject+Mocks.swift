@@ -9,6 +9,25 @@ import Foundation
 
 public extension NearEarthObject {
     
+    static func mock(forDate date: Date) -> NearEarthObject {
+        let id = UUID().uuidString
+        return NearEarthObject(
+            id: id,
+            referenceID: id,
+            name: "(2009 JR5)",
+            absoluteMagnitude: 20.44,
+            estimatedDiameter: 485.3331752235,
+            isPotentiallyHazardousAsteroid: false,
+            closeApproachDate: date,
+            relativeVelocity: 18.1279360862,
+            missDistance: 45290298.225725659,
+            orbitingBody: "Earth",
+            normalizedDiameter: 1,
+            normalizedRelativeVelocity: 0.7,
+            normalizedMissDistance: 0.4
+        )
+    }
+    
     static var mock1: NearEarthObject {
         NearEarthObject(
             id: "2465633",

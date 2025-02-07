@@ -16,7 +16,7 @@ struct ObjectListView: View {
     // MARK: - Constants
     
     /// A maximum column width, which works as a simple but
-    /// effective constraint for larger devices like iPads.
+    /// effective constraint for larger devices like iPad.
     private let maxColumnWidth: CGFloat = 550
     
     // MARK: - Variables

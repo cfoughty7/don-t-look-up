@@ -13,7 +13,6 @@ import Factory
 
 class LoadingControllerTests {
     
-    /// Tests a successful request where the result is `Void`
     @Test func testInitialStateIsEmpty() async throws {
         let controller = LoadingController { 1 }
         let state = try await controller.state.firstValue()
@@ -40,7 +39,7 @@ class LoadingControllerTests {
     }
     
     @Test func testLoadFailsWithError() async {
-        let controller = LoadingController<Int> { throw TestError.test }
+        let controller = LoadingController<Int> { throw MockError.error }
         
         var observedStates: [LoadingController<Int>.State] = []
         await controller.state
@@ -53,7 +52,7 @@ class LoadingControllerTests {
         #expect(observedStates == [
             .empty(nil),
             .loading(nil),
-            .empty(TestError.test)
+            .empty(MockError.error)
         ])
     }
     
@@ -73,9 +72,9 @@ class LoadingControllerTests {
     
     @MainActor
     @Test func testRandomSequence() async throws {
-        var returnValues: [Result<Int, TestError>] = [
-            .success(1), .success(2), .failure(.test), .failure(.test2), .success(1),
-            .failure(.test2), .success(4), .success(5), .success(10), .failure(.test)
+        var returnValues: [Result<Int, MockError>] = [
+            .success(1), .success(2), .failure(.error), .failure(.error2), .success(1),
+            .failure(.error2), .success(4), .success(5), .success(10), .failure(.error)
         ]
         let controller = LoadingController {
             let next = returnValues.removeFirst()
@@ -103,13 +102,13 @@ class LoadingControllerTests {
             .loading(1),
             .loaded(2, nil),
             .loading(2),
-            .loaded(2, TestError.test),
+            .loaded(2, MockError.error),
             .loading(2),
-            .loaded(2, TestError.test2),
+            .loaded(2, MockError.error2),
             .loading(2),
             .loaded(1, nil),
             .loading(1),
-            .loaded(1, TestError.test2),
+            .loaded(1, MockError.error2),
             .loading(1),
             .loaded(4, nil),
             .loading(4),
@@ -117,7 +116,7 @@ class LoadingControllerTests {
             .loading(5),
             .loaded(10, nil),
             .loading(10),
-            .loaded(10, TestError.test)
+            .loaded(10, MockError.error)
         ])
     }
     
