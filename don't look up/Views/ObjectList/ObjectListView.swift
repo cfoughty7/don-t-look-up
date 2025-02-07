@@ -72,11 +72,13 @@ struct ObjectListView: View {
     private var scrollContent: some View {
         LazyVStack(spacing: 5) {
             SceneKitView(model: .earth)
+                .accessibilityLabel("Spinning model of Earth")
                 .frame(height: 220)
             
             LazyVStack(spacing: 50) {
                 if !viewModel.state.isError {
                     RadarDivider(nearEarthObjects: viewModel.state.value?.first?.objects)
+                        .accessibilityLabel("Representation of today's approaching Near Earth Objects")
                         .padding(.horizontal, 14)
                         // Apply a max width for larger devices
                         .frame(maxWidth: maxColumnWidth)
@@ -97,6 +99,7 @@ struct ObjectListView: View {
                                 ObjectRow(nearEarthObject: object) {
                                     viewModel.rowTapped(object)
                                 }
+                                .accessibilityHint("Shows details about object \(object.name)")
                                 // A matched transition source, paired with the
                                 // ObjectDetailView for a card-like nav transition.
                                 .matchedTransitionSource(id: object.id, in: namespace)

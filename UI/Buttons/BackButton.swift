@@ -35,6 +35,7 @@ public struct BackButton: View {
                 .frame(width: 26, height: 26)
         }
         .buttonStyle(BackButtonStyle())
+        .accessibilityHint("Goes back")
     }
     
     // MARK: - Helpers

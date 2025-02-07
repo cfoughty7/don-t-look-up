@@ -40,6 +40,8 @@ struct ErrorBanner: View {
             
             BodyText(uiError.message)
         }
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("\(uiError.title), \(uiError.message)")
         .frame(maxWidth: .infinity, alignment: .leading)
         .multilineTextAlignment(.leading)
         .foregroundStyle(Color.readout)

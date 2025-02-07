@@ -43,8 +43,11 @@ public struct ErrorView: View {
                 
                 BodyText(uiError.message)
             }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel("\(uiError.title), \(uiError.message)")
             
             PrimaryButton("RETRY", action: onRetry)
+                .accessibilityHint("Retries the previous action")
         }
         .foregroundStyle(Color.readout)
     }

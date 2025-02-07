@@ -40,6 +40,7 @@ struct ObjectDetailView: View {
     
     @StateObject private var viewModel: ObjectDetailViewModel
     @State private var isNavBarBackgroundVisible: Bool = false
+    @State private var backButtonWidth: CGFloat = .zero
     
     private let object: NearEarthObject
     private let namespace: Namespace.ID
@@ -59,6 +60,9 @@ struct ObjectDetailView: View {
             
             VStack(spacing: 0) {
                 SceneKitView(model: viewModel.diameterCategory.model)
+                    .accessibilityLabel(
+                        "Spinning model of a \(viewModel.diameterCategory.text.lowercased()) asteroid"
+                    )
                     .frame(height: 200)
                     .padding(.vertical, 25)
                 
@@ -68,14 +72,13 @@ struct ObjectDetailView: View {
                     ) { isBackgroundVisible in
                         HStack(spacing: 0) {
                             BackButton()
+                                .onSizeChange { backButtonWidth = $0.width }
                             Spacer(minLength: 10)
                             if isBackgroundVisible {
                                 TitleText(object.name)
                             }
                             Spacer(minLength: 10)
-                            BackButton()
-                                .disabled(true)
-                                .hidden()
+                            Spacer().frame(width: backButtonWidth)
                         }
                         .frame(maxWidth: .infinity)
                         .padding([.horizontal, .top], viewPadding)
@@ -116,18 +119,7 @@ struct ObjectDetailView: View {
     
     private var detailView: some View {
         LazyVStack(alignment: .leading, spacing: interMetricSpacing) {
-            VStack(alignment: .leading, spacing: 30) {
-                VStack(alignment: .leading, spacing: 14) {
-                    HugeText(object.name)
-                    BodyText("\(object.riskText) DOOMSDAY RISK")
-                        .foregroundStyle(object.riskColor)
-                }
-                
-                VStack(alignment: .leading, spacing: 10) {
-                    CalloutText("ORBITAL CLASS: APO")
-                    BodyText("Near-Earth asteroid orbits which cross the Earth’s orbit similar to that of 1862 Apollo.")
-                }
-            }
+            objectDescription
             
             closeApproachView
             diameterView
@@ -144,18 +136,7 @@ struct ObjectDetailView: View {
         // Not much benefit to lazy views here.
         HStack(alignment: .top, spacing: 80) {
             VStack(alignment: .leading, spacing: interMetricSpacing) {
-                VStack(alignment: .leading, spacing: 30) {
-                    VStack(alignment: .leading, spacing: 14) {
-                        HugeText(object.name)
-                        BodyText(object.riskText + " DOOMSDAY RISK")
-                            .foregroundStyle(object.riskColor)
-                    }
-                    
-                    VStack(alignment: .leading, spacing: 10) {
-                        HeadlineText("ORBITAL CLASS: APO")
-                        BodyText("Near-Earth asteroid orbits which cross the Earth’s orbit similar to that of 1862 Apollo.")
-                    }
-                }
+                objectDescription
                 
                 closeApproachView
                 diameterView
@@ -172,6 +153,21 @@ struct ObjectDetailView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.top, 8)
         .padding([.horizontal, .bottom], viewPadding)
+    }
+    
+    private var objectDescription: some View {
+        VStack(alignment: .leading, spacing: 30) {
+            VStack(alignment: .leading, spacing: 14) {
+                HugeText(object.name)
+                BodyText("\(object.riskText) DOOMSDAY RISK")
+                    .foregroundStyle(object.riskColor)
+            }
+            
+            VStack(alignment: .leading, spacing: 10) {
+                CalloutText("ORBITAL CLASS: APO")
+                BodyText("Near-Earth asteroid orbits which cross the Earth’s orbit similar to that of 1862 Apollo.")
+            }
+        }
     }
     
     private var closeApproachView: some View {
@@ -195,6 +191,8 @@ struct ObjectDetailView: View {
                 .multilineTextAlignment(.trailing)
                 .foregroundStyle(viewModel.approachTimeColor)
             }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(viewModel.approachTimeAccessibilityLabel)
         }
     }
     
@@ -229,6 +227,8 @@ struct ObjectDetailView: View {
                         )
                 }
             }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(viewModel.diameterAccessibilityLabel)
         }
     }
     
@@ -263,6 +263,8 @@ struct ObjectDetailView: View {
                         )
                 }
             }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(viewModel.relativeVelocityAccessibilityLabel)
         }
     }
     
@@ -282,6 +284,8 @@ struct ObjectDetailView: View {
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(viewModel.missDistanceAccessibilityLabel)
                 
                 StrokedGrid(
                     stroke: Color.readout.opacity(0.2),

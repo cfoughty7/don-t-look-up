@@ -27,6 +27,7 @@ struct WelcomeView: View {
             VStack(spacing: 54) {
                 VStack(spacing: 30) {
                     HugeText("DON'T LOOK UP")
+                        .accessibilityHidden(true)
                     
                     Image.asteroid
                         .resizable()
@@ -61,6 +62,7 @@ struct WelcomeView: View {
             PrimaryButton("PROCEED") {
                 hasOnboarded = true
             }
+            .accessibilityHint("Continues into the app.")
             .padding(.bottom, 20)
         }
         .onAppear {

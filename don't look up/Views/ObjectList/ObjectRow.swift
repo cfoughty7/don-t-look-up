@@ -39,6 +39,7 @@ struct ObjectRow: View {
                     CalloutText("\(nearEarthObject.riskText) DOOMSDAY RISK")
                         .foregroundStyle(nearEarthObject.riskColor)
                 }
+                .accessibilityElement(children: .combine)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundStyle(Color.readout)
                 .padding(.top, 14)

@@ -31,6 +31,8 @@ class ObjectDetailViewModel: ObservableObject {
     
     /// The time text for the object approach
     @Published private(set) var approachTimeText: Approach = .future("")
+    /// The text for the object approach time accessibility label
+    @Published private(set) var approachTimeAccessibilityLabel: String = ""
     /// The color to use for the time text of the approach
     @Published private(set) var approachTimeColor: Color = .readout
     
@@ -39,14 +41,18 @@ class ObjectDetailViewModel: ObservableObject {
     /// The object diameter normalized against all other objects
     let normalizedDiameter: Double
     /// The size category of the diameter
-    let diameterCategory: Category
+    let diameterCategory: DiameterCategory
+    /// The text for the diameter accessibility label
+    let diameterAccessibilityLabel: String
     
     /// The object velocity text
     let relativeVelocityText: String
     /// The object velocity normalized against all other objects
     let normalizedRelativeVelocity: Double
     /// The velocity category of the velocity
-    let relativeVelocityCategory: Category
+    let relativeVelocityCategory: VelocityCategory
+    /// The text for the velocity accessibility label
+    let relativeVelocityAccessibilityLabel: String
     
     /// The miss distance text
     let missDistanceText: String
@@ -54,15 +60,21 @@ class ObjectDetailViewModel: ObservableObject {
     let missDistanceLabelText: String
     /// The object miss distance normalized against all other objects
     let normalizedMissDistance: Double
+    /// The text for the miss distance accessibility label
+    let missDistanceAccessibilityLabel: String
     
     init(object: NearEarthObject) {
         self.object = object
         self.diameterText = object.estimatedDiameter.formatted(.number.precision(.fractionLength(2)))
         self.normalizedDiameter = object.normalizedDiameter
-        self.diameterCategory = Category(normalizedValue: object.normalizedDiameter)
+        let diameterCategory = DiameterCategory(normalizedValue: object.normalizedDiameter)
+        self.diameterCategory = diameterCategory
+        self.diameterAccessibilityLabel = "The object is \(diameterCategory.text.lowercased()) at an estimated diameter of \(diameterText) meters."
         self.relativeVelocityText = object.relativeVelocity.formatted(.number.precision(.fractionLength(2)))
         self.normalizedRelativeVelocity = object.normalizedRelativeVelocity
-        self.relativeVelocityCategory = Category(normalizedValue: object.normalizedRelativeVelocity)
+        let relativeVelocityCategory = VelocityCategory(normalizedValue: object.normalizedRelativeVelocity)
+        self.relativeVelocityCategory = relativeVelocityCategory
+        self.relativeVelocityAccessibilityLabel = "The object is moving at a relatively \(relativeVelocityCategory.text.lowercased()) speed at \(relativeVelocityText) kilometers per second."
         self.normalizedMissDistance = object.normalizedMissDistance
         
         // Rather than recalculate this in a computed property, just capture
@@ -72,16 +84,22 @@ class ObjectDetailViewModel: ObservableObject {
         let million = 1_000_000.0
         let missDistance = object.missDistance / 1000
         
+        let missDistanceText: String
+        let missDistanceUnit: String
         if missDistance >= million {
-            self.missDistanceText = String(format: "%.1f", missDistance / million)
-            self.missDistanceLabelText = "MILLION KILOMETERS"
+            missDistanceText = String(format: "%.1f", missDistance / million)
+            missDistanceUnit = "MILLION KILOMETERS"
         } else if missDistance >= thousand {
-            self.missDistanceText = String(format: "%.1f", missDistance / thousand)
-            self.missDistanceLabelText = "THOUSAND KILOMETERS"
+            missDistanceText = String(format: "%.1f", missDistance / thousand)
+            missDistanceUnit = "THOUSAND KILOMETERS"
         } else {
-            self.missDistanceText = String(format: "%.1f", missDistance / thousand)
-            self.missDistanceLabelText = "KILOMETERS"
+            missDistanceText = String(format: "%.1f", missDistance / thousand)
+            missDistanceUnit = "KILOMETERS"
         }
+        
+        self.missDistanceAccessibilityLabel = "The object will miss the Earth by \(missDistanceText) \(missDistanceUnit)"
+        self.missDistanceText = missDistanceText
+        self.missDistanceLabelText = missDistanceUnit
         
         calculateTimeRemaining()
         installTimer()
@@ -90,7 +108,7 @@ class ObjectDetailViewModel: ObservableObject {
     // MARK: - Constants
     
     /// The size category of an asteroid
-    enum Category {
+    enum DiameterCategory {
         case small
         case medium
         case large
@@ -124,6 +142,32 @@ class ObjectDetailViewModel: ObservableObject {
         }
     }
     
+    /// The speed category of an asteroid
+    enum VelocityCategory {
+        case slow
+        case medium
+        case fast
+        
+        init(normalizedValue: Double) {
+            if normalizedValue < 0.33 {
+                self = .slow
+            } else if normalizedValue < 0.66 {
+                self = .medium
+            } else {
+                self = .fast
+            }
+        }
+        
+        /// The text representation of the speed category
+        var text: String {
+            switch self {
+            case .slow: "SLOW"
+            case .medium: "MODERATE"
+            case .fast: "FAST"
+            }
+        }
+    }
+    
     // MARK: - Variables
     
     private let object: NearEarthObject
@@ -149,8 +193,10 @@ class ObjectDetailViewModel: ObservableObject {
             timer?.invalidate()
             approachTimeText = .past(timeAgoString(from: object.closeApproachDate))
             approachTimeColor = .readout
+            approachTimeAccessibilityLabel = "The object passed Earth \(approachTimeText)"
         } else {
             approachTimeText = .future(formattedTime(from: timeRemaining))
+            approachTimeAccessibilityLabel = "The object will pass Earth in \(approachTimeText.text)"
             approachTimeColor = {
                 if timeRemaining < 60 * 60 {
                     // If less than an hour remaining, use the impact color
