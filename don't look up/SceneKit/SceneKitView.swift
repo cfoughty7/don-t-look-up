@@ -39,6 +39,7 @@ struct SceneKitView: UIViewRepresentable {
         sceneView.allowsCameraControl = false
         sceneView.autoenablesDefaultLighting = true
         sceneView.backgroundColor = .clear
+        sceneView.alpha = model.fadeIn ? 0 : 1
         
         if model.autorotate {
             // Add a slow rotation about the y axis
@@ -50,7 +51,12 @@ struct SceneKitView: UIViewRepresentable {
         return sceneView
     }
 
-    func updateUIView(_ uiView: SCNView, context: Context) {}
+    func updateUIView(_ uiView: SCNView, context: Context) {
+        guard uiView.alpha == 0 else { return }
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
+            uiView.alpha = 1
+        }
+    }
     
     // MARK: - Helpers
 }

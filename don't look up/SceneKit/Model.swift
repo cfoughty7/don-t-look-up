@@ -24,6 +24,14 @@ public enum Model {
         }
     }
     
+    /// Indicates whether a model should fade into view.
+    var fadeIn: Bool {
+        switch self {
+        case .earth: true
+        case .asteroidSmall, .asteroidMedium, .asteroidLarge: false
+        }
+    }
+    
     /// Indicates whether a model's should automatically rotate in the y direction.
     var autorotate: Bool {
         switch self {
