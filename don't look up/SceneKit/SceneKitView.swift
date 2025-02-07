@@ -53,7 +53,7 @@ struct SceneKitView: UIViewRepresentable {
 
     func updateUIView(_ uiView: SCNView, context: Context) {
         guard uiView.alpha == 0 else { return }
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
+        UIView.animate(withDuration: 0.5, delay: 0.25, options: .curveEaseInOut) {
             uiView.alpha = 1
         }
     }
