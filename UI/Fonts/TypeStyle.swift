@@ -64,6 +64,6 @@ public extension TypeStyle {
     
     /// A `Font` with the callout type style.
     static let callout: Font = {
-        TypeStyle(font: .josefinSansRegular, size: 12).font
+        TypeStyle(font: .josefinSansRegular, size: 13).font
     }()
 }

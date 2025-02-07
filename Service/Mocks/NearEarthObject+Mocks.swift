@@ -15,13 +15,15 @@ public extension NearEarthObject {
             referenceID: "2465633",
             name: "(2009 JR5)",
             absoluteMagnitude: 20.44,
-            estimatedMinimumDiameter: 217.0475943071,
-            estimatedMaximumDiameter: 485.3331752235,
+            estimatedDiameter: 485.3331752235,
             isPotentiallyHazardousAsteroid: false,
-            closeApproachDate: Date(),
+            closeApproachDate: Date().advanced(by: 24 * 60 * 60 * 3),
             relativeVelocity: 18.1279360862,
             missDistance: 45290298.225725659,
-            orbitingBody: "Earth"
+            orbitingBody: "Earth",
+            normalizedDiameter: 1,
+            normalizedRelativeVelocity: 0.7,
+            normalizedMissDistance: 0.4
         )
     }
     
@@ -31,13 +33,15 @@ public extension NearEarthObject {
             referenceID: "3426410",
             name: "(2008 QV11)",
             absoluteMagnitude: 21.34,
-            estimatedMinimumDiameter: 143.4019234645,
-            estimatedMaximumDiameter: 320.6564489709,
+            estimatedDiameter: 320.6564489709,
             isPotentiallyHazardousAsteroid: false,
             closeApproachDate: Date().advanced(by: 24 * 60 * 60),
             relativeVelocity: 19.7498128142,
             missDistance: 38764558.550560687,
-            orbitingBody: "Earth"
+            orbitingBody: "Earth",
+            normalizedDiameter: 0.7,
+            normalizedRelativeVelocity: 0.3,
+            normalizedMissDistance: 0.2
         )
     }
     
@@ -47,13 +51,15 @@ public extension NearEarthObject {
             referenceID: "3553060",
             name: "(2010 XT10)",
             absoluteMagnitude: 26.5,
-            estimatedMinimumDiameter: 13.3215566698,
-            estimatedMaximumDiameter: 29.7879062798,
+            estimatedDiameter: 29.7879062798,
             isPotentiallyHazardousAsteroid: false,
-            closeApproachDate: Date(),
+            closeApproachDate: Date().advanced(by: 24 * 60 * 60 * 3),
             relativeVelocity: 19.1530348886,
             missDistance: 73563782.385433689,
-            orbitingBody: "Earth"
+            orbitingBody: "Earth",
+            normalizedDiameter: 0.1,
+            normalizedRelativeVelocity: 0.3,
+            normalizedMissDistance: 0.8
         )
     }
     
@@ -63,13 +69,15 @@ public extension NearEarthObject {
             referenceID: "3726710",
             name: "(2015 RC)",
             absoluteMagnitude: 24.3,
-            estimatedMinimumDiameter: 36.6906137531,
-            estimatedMaximumDiameter: 82.0427064882,
+            estimatedDiameter: 82.0427064882,
             isPotentiallyHazardousAsteroid: false,
             closeApproachDate: Date().advanced(by: 24 * 60 * 60),
             relativeVelocity: 19.486643553,
             missDistance: 4027962.697099799,
-            orbitingBody: "Earth"
+            orbitingBody: "Earth",
+            normalizedDiameter: 0.2,
+            normalizedRelativeVelocity: 0.5,
+            normalizedMissDistance: 0.8
         )
     }
     
@@ -79,13 +87,15 @@ public extension NearEarthObject {
             referenceID: "3727181",
             name: "(2015 RO36)",
             absoluteMagnitude: 22.93,
-            estimatedMinimumDiameter: 68.9532874451,
-            estimatedMaximumDiameter: 154.1842379994,
+            estimatedDiameter: 154.1842379994,
             isPotentiallyHazardousAsteroid: false,
             closeApproachDate: Date().advanced(by: 24 * 60 * 60),
             relativeVelocity: 15.8091452192,
             missDistance: 8086031.995456672,
-            orbitingBody: "Earth"
+            orbitingBody: "Earth",
+            normalizedDiameter: 0.5,
+            normalizedRelativeVelocity: 0.4,
+            normalizedMissDistance: 0.3
         )
     }
     
@@ -95,13 +105,15 @@ public extension NearEarthObject {
             referenceID: "3727639",
             name: "(2015 RN83)",
             absoluteMagnitude: 21.77,
-            estimatedMinimumDiameter: 117.639989374,
-            estimatedMaximumDiameter: 263.0510131126,
+            estimatedDiameter: 263.0510131126,
             isPotentiallyHazardousAsteroid: false,
-            closeApproachDate: Date(),
+            closeApproachDate: Date().advanced(by: 24 * 60 * 60 * 3),
             relativeVelocity: 12.0811420305,
             missDistance: 25195177.358205543,
-            orbitingBody: "Earth"
+            orbitingBody: "Earth",
+            normalizedDiameter: 0.7,
+            normalizedRelativeVelocity: 0.4,
+            normalizedMissDistance: 0.6
         )
     }
     
@@ -111,13 +123,15 @@ public extension NearEarthObject {
             referenceID: "323",
             name: "(2015 CB)",
             absoluteMagnitude: 21.34,
-            estimatedMinimumDiameter: 90.4019234645,
-            estimatedMaximumDiameter: 180.6564489709,
+            estimatedDiameter: 180.6564489709,
             isPotentiallyHazardousAsteroid: true,
             closeApproachDate: Date().advanced(by: 24 * 60 * 60 * 2),
             relativeVelocity: 19.7498128142,
             missDistance: 32764558.550560687,
-            orbitingBody: "Earth"
+            orbitingBody: "Earth",
+            normalizedDiameter: 0.6,
+            normalizedRelativeVelocity: 0.4,
+            normalizedMissDistance: 0.5
         )
     }
     
@@ -127,13 +141,15 @@ public extension NearEarthObject {
             referenceID: "3730577",
             name: "(2015 TX237)",
             absoluteMagnitude: 23.3,
-            estimatedMinimumDiameter: 58.1507039646,
-            estimatedMaximumDiameter: 130.0289270043,
+            estimatedDiameter: 130.0289270043,
             isPotentiallyHazardousAsteroid: false,
-            closeApproachDate: Date(),
+            closeApproachDate: Date().advanced(by: 24 * 60 * 60 * 3),
             relativeVelocity: 6.573400491,
             missDistance: 11896602.433824546,
-            orbitingBody: "Earth"
+            orbitingBody: "Earth",
+            normalizedDiameter: 0.4,
+            normalizedRelativeVelocity: 0.1,
+            normalizedMissDistance: 0.4
         )
     }
     
@@ -143,13 +159,15 @@ public extension NearEarthObject {
             referenceID: "3731587",
             name: "(2015 UG)",
             absoluteMagnitude: 22.81,
-            estimatedMinimumDiameter: 72.8710414898,
-            estimatedMaximumDiameter: 162.9446023625,
+            estimatedDiameter: 162.9446023625,
             isPotentiallyHazardousAsteroid: false,
             closeApproachDate: Date().advanced(by: 24 * 60 * 60),
             relativeVelocity: 11.9557600601,
             missDistance: 16940461.018585347,
-            orbitingBody: "Earth"
+            orbitingBody: "Earth",
+            normalizedDiameter: 0.5,
+            normalizedRelativeVelocity: 0.7,
+            normalizedMissDistance: 0.2
         )
     }
     
@@ -159,13 +177,15 @@ public extension NearEarthObject {
             referenceID: "3747356",
             name: "(2016 EK158)",
             absoluteMagnitude: 20.49,
-            estimatedMinimumDiameter: 212.1069878758,
-            estimatedMaximumDiameter: 474.2856433931,
+            estimatedDiameter: 474.2856433931,
             isPotentiallyHazardousAsteroid: false,
-            closeApproachDate: Date(),
+            closeApproachDate: Date().advanced(by: 24 * 60 * 60 * 3),
             relativeVelocity: 16.9572895141,
             missDistance: 41958497.683910302,
-            orbitingBody: "Earth"
+            orbitingBody: "Earth",
+            normalizedDiameter: 0.94,
+            normalizedRelativeVelocity: 0.3,
+            normalizedMissDistance: 0.4
         )
     }
 }

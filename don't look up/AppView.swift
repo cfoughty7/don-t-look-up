@@ -13,6 +13,9 @@ struct AppView: App {
     var body: some Scene {
         WindowGroup {
             ObjectListView()
+                // The app has a dark theme, so apply the scheme
+                // so that system controls respect that.
+                .colorScheme(.dark)
         }
     }
 }

@@ -28,7 +28,7 @@ public enum APIError: AppError, Equatable {
             UIError(
                 symbol: .wifiSlash,
                 title: "Offline",
-                message: "Try again when you device is online."
+                message: "Try again when your device is online."
             )
         }
     }
