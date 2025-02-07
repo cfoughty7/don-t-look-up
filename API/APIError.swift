@@ -5,10 +5,10 @@
 //  Created by Carter Foughty on 2/1/25.
 //
 
-import Foundation
+import Core
 
 /// A simplified list of errors for any `APIRequest`
-public enum APIError: Error, Equatable {
+public enum APIError: AppError, Equatable {
     
     /// A fallback for errors that weren't anticipated
     case unexpected(String)
@@ -18,4 +18,18 @@ public enum APIError: Error, Equatable {
     
     /// The request couldn't be sent because the device is offline
     case offline
+    
+    /// Error data to present to the user
+    public var uiError: UIError {
+        switch self {
+        case .unexpected: UIError.default
+        case .unauthorized: UIError.default
+        case .offline:
+            UIError(
+                symbol: .wifiSlash,
+                title: "Offline",
+                message: "Try again when you device is online."
+            )
+        }
+    }
 }

@@ -40,7 +40,7 @@ struct ObjectAttributeIndicator: View {
     /// Creates an instance of an `ObjectAttributeIndicator`
     /// - Parameter value: The 'progress' to present, on a scale of 0 to 1
     /// - Parameter style: The `Style` which defines attributes of the view
-    init(value: CGFloat, style: Style) {
+    init(value: Double, style: Style) {
         self.value = value
         self.style = style
     }
@@ -55,7 +55,7 @@ struct ObjectAttributeIndicator: View {
     @State private var actualBarWidth: CGFloat = .zero
     
     /// The progress to present, on a scale of 0 to 1. This property drives which bars are filled in.
-    private let value: CGFloat
+    private let value: Double
     /// The `Style` to use when configuring the view.
     private let style: Style
     
@@ -95,21 +95,10 @@ struct ObjectAttributeIndicator: View {
         let filledBars = Int((value * Double(totalBars)).rounded(.toNearestOrAwayFromZero)) - 1
         let isFilledIn = index <= filledBars
         guard isFilledIn else { return nil }
-        // The index threshold where the warning color should be used.
-        let warningColorThreshold = (Double(totalBars + 1) / 2) - 1
-        // The index threshold where the impact color should be used,
-        // adjusted to start at the warning color threshold.
-        let impactColorThreshold = Double(totalBars - 1) - warningColorThreshold
         
-        // The amount that `Color.warning` is mixed into `Color.readout`.
-        let warningMixValue = min((Double(index) / warningColorThreshold), 1)
-        // The amount that `Color.impact` is mixed into `Color.warning`.
-        let impactAdjustedImpact = (Double(index) - warningColorThreshold)
-        let impactMixValue = warningMixValue < 1 ? 0 : min((impactAdjustedImpact / impactColorThreshold), 1)
-        
-        return Color.readout
-            .mix(with: Color.warning, by: warningMixValue)
-            .mix(with: Color.impact, by: impactMixValue)
+        // The normalized position (0 to 1) of the bar.
+        let position = Double(index + 1) / Double(totalBars)
+        return Color.risk(value: position)
     }
 }
 

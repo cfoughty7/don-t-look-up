@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Core
 
 /// A `Button` view that can be used specifically to go back in navigation contexts.
 public struct BackButton: View {
